@@ -2,10 +2,11 @@ pipeline {
     agent any
     
     stages {
-        stage('Build') {
-            steps {
-                // Your build steps here (if needed)
-            }
+       steps {
+        // Replace these commands with your actual build commands
+        sh 'make clean'
+        sh 'make'
+    }
         }
         stage('Run Demo1') {
             steps {
