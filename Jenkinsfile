@@ -17,7 +17,7 @@ pipeline {
         stage('Run Python Scripts') {
             steps {
                 // Change to the directory with Python scripts
-                dir('path/to/python/scripts') {
+                dir('*/main') {
                     sh 'python demo1.py'
                     sh 'python demo2.py'
                 }
