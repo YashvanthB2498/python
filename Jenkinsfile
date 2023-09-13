@@ -1,26 +1,20 @@
 pipeline {
     agent any
-
+    
     stages {
-        stage('Clone Remote Repository') {
+        stage('Build') {
             steps {
-                // Clone the remote Git repository
-                checkout([$class: 'GitSCM',
-                          branches: [[name: '*/main']],
-                          doGenerateSubmoduleConfigurations: false,
-                          extensions: [[$class: 'GitUsernamePasswordAuthentication',
-                                        credentialsId: 'Git_credentials']],
-                          userRemoteConfigs: [[url: 'https://code.fresco.me/Hackathon/internal-recruitment/pluseval-jenkins-declarativepipeline.git']]])
+                // Your build steps here (if needed)
             }
         }
-
-        stage('Run Python Scripts') {
+        stage('Run Demo1') {
             steps {
-                // Change to the directory with Python scripts
-                dir('*/main') {
-                    sh 'python demo1.py'
-                    sh 'python demo2.py'
-                }
+                sh 'python demo1.py'
+            }
+        }
+        stage('Run Demo2') {
+            steps {
+                sh 'python demo2.py'
             }
         }
     }
